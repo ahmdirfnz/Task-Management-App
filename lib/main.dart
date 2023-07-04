@@ -31,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   final List<Todo> _todos = <Todo>[];
   final TextEditingController _textEditingController = TextEditingController();
 
@@ -89,12 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   void _deleteTodo(Todo todo) {
     setState(() {
       _todos.removeWhere((element) => element.name == todo.name);
@@ -126,6 +119,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+class Todo {
+  Todo({required this.name, required this.completed});
+  String name;
+  bool completed;
 }
 
 class TodoItem extends StatelessWidget {
@@ -199,9 +198,5 @@ class BlueBox extends StatelessWidget {
   }
 }
 
-class Todo {
-  Todo({required this.name, required this.completed});
-  String name;
-  bool completed;
-}
+
 
