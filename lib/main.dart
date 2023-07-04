@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Task Management App',
+      title: 'Flutter Demo',
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Task Management App'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+<<<<<<< HEAD
   final List<Todo> _todos = <Todo>[];
   final TextEditingController _textEditingController = TextEditingController();
 
@@ -91,6 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _deleteTodo(Todo todo) {
     setState(() {
       _todos.removeWhere((element) => element.name == todo.name);
+=======
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+>>>>>>> parent of 91b42f8 (make todo list)
     });
   }
 
@@ -102,24 +110,31 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        children: _todos.map((Todo todo) {
-          return TodoItem(
-            todo: todo,
-            onTodoChanged: _handleTodoChange,
-            removeTodo: _deleteTodo,
-          );
-        }).toList(),
+      body: Center(
+
+        child: Column(
+
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _displayDialog,
+        onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
   }
 }
+<<<<<<< HEAD
 
 class Todo {
   Todo({required this.name, required this.completed});
@@ -200,3 +215,5 @@ class BlueBox extends StatelessWidget {
 
 
 
+=======
+>>>>>>> parent of 91b42f8 (make todo list)
